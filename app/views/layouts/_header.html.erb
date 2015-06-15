@@ -3,7 +3,11 @@
     <%= link_to "Framgia", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav pull-right">
-        <li><%= link_to "Home",   root_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("log_out"), logout_path, method: "delete" %></li>
+        <% else %>
+          <li><%= link_to t("log_in"), login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
