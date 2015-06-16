@@ -3,4 +3,8 @@ class Word < ActiveRecord::Base
   has_many :results
   
   belongs_to :category
+  
+  def correct_answer
+    answers.find_by is_correct: true
+  end
 end

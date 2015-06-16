@@ -1,0 +1,11 @@
+jQuery ->
+  if $("nav.pagination").size() > 0
+    more_posts_url = $("nav.pagination a[rel=next]").attr("href")
+    if more_posts_url
+      $(".pagination").html("<%= I18n.t :word_getting_data %>");
+      $.getScript more_posts_url
+    $(window).on "scroll", ->
+      more_posts_url = $("nav.pagination a[rel=next]").attr("href")
+      if more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60
+        $('.pagination').html("<%= I18n.t :word_getting_data %>");
+        $.getScript more_posts_url
