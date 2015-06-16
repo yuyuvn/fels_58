@@ -1,0 +1,7 @@
+$("#words").append("<%= j render @words %>");
+<% if @words.next_page %>
+  $(".pagination").replaceWith("<%= j paginate @words %>");
+<% else %>
+  $(window).off("scroll");
+  $(".pagination").remove();
+<% end %>

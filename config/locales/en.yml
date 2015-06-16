@@ -23,6 +23,7 @@ en:
   invalid_email_password_combination: "Invalid email/password combination"
   log_in: "Log in"
   log_out: "Log out"
+  word_getting_data: "Getting more data..."
   request_login_message: "Please login!"
   profile_updated_message: "Profile updated"
   profile_edit_title: "Update your profile"
