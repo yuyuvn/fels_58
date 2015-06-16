@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :activities
+  has_many :activities, ->{newest}
   has_many :lessons
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
   
   has_secure_password
+  
+  def learned_words
+    lessons.sum :correct_number
+  end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]
   resources :category do
     resources :words, only: [:index]
   end
