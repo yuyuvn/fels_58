@@ -1,0 +1,6 @@
+activity_state:
+  unfollow: "unfollow"
+  follow: "follow"
+  learned: "learned"
+user:
+  avatar_size: 50

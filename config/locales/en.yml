@@ -21,8 +21,6 @@
 
 en:
   invalid_email_password_combination: "Invalid email/password combination"
-  log_in: "Log in"
-  log_out: "Log out"
   word_getting_data: "Getting more data..."
   request_login_message: "Please login!"
   profile_updated_message: "Profile updated"
@@ -30,5 +28,22 @@ en:
   profile_edit_avatar: "Update your avatar"
   save_button: "Save change"
   form_error_title: "The form contains %{errors_number} errors"
-  menu_settings: "Settings"
-  menu_account: "Account"
+  sessions:
+    new:
+      log_in: "Log in"
+  header:
+    settings: "Settings"
+    account: "Account"
+    profile: "Profile"
+    log_out: "log out"
+    log_in: "Log in"
+  users:
+    show:
+      title: "%{name} - Profile"
+      learned_x_words: "Learned %{learned_words_number} words"
+      activities: "Activities"  
+  activities:
+    activity:
+      learned_x_words_in_lesson_y: "Learned %{words_number} words in Lesson '%{lesson}'"
+      followed_x: "Followed user %{target}"
+      unfollowed_x: "Unfollowed user %{target}"
