@@ -30,11 +30,4 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     redirect_to root_url unless current_user? @user
   end
-  
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = I18n.t :request_login_message
-      redirect_to login_url
-    end
-  end
 end

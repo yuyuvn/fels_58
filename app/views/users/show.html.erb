@@ -8,6 +8,8 @@
       <%= @user.name %>
       <br />
       <%= t ".learned_x_words", learned_words_number: @user.learned_words %>
+      <div class="clearfix"></div>
+      <%= render "follow_form" if logged_in? %>
     </section>
   </aside>
   <div class="col-md-8 content">
