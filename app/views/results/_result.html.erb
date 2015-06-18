@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-2 result-symbol text-danger">
+    <%= result.is_correct? ? t(".correct") : t(".wrong") %>
+  </div>
+  <div class="col-md-4">
+    <%= result.word.content %>
+  </div>
+  <div class="col-md-4">
+    <%= result.answer.content %>
+  </div>
+  <div class="col-md-2">
+    <% if result.word.has_audio? %>
+      <%= audio_tag result.word.audio, class: "audio-play" %>
+    <% end %>
+  </div>
+</div>
