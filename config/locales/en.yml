@@ -47,3 +47,9 @@ en:
       learned_x_words_in_lesson_y: "Learned %{words_number} words in Lesson '%{lesson}'"
       followed_x: "Followed user %{target}"
       unfollowed_x: "Unfollowed user %{target}"
+  results:
+    index:
+      title: "%{category} Result"
+    result:
+      correct: "O"
+      wrong: "X"
