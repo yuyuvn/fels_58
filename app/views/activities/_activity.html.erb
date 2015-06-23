@@ -2,7 +2,7 @@
 <%= gravatar_for activity.user, size: Settings.user.avatar_size %>
 <% if activity.is_learned? %>
   <%= t ".learned_x_words_in_lesson_y",
-    words_number: activity.target.correct_number,
+    words_number: activity.target.results.count,
     lesson: activity.target.category.name %> - 
   (<%= l activity.created_at.to_date %>)
 <% elsif activity.is_follow? %>

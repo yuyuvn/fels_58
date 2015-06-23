@@ -14,7 +14,7 @@ module LogModule
   
   def create_learned_log
     Activity.create user_id: user_id,
-      target_id: category_id,
+      target_id: id,
       state: Settings.activity_state.learned
   end
 end

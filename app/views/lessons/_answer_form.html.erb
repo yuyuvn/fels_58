@@ -1,0 +1,19 @@
+<div class="row answer-form">
+  <div class="col-md-6">
+    <h1><%= form.object.word.content %></h1>
+    <% if form.object.word.has_audio? %>
+      <br />
+      <%= audio_tag form.object.word.audio, class: "audio-play" %>
+    <% end %>
+  </div>
+  <div class="col-md-6 answers btn-group" role="group">
+    <% form.object.word.answers.shuffle.each do |answer| %>
+      <div>
+        <label class="answer-button btn btn-primary">
+          <%= form.radio_button :answer_id, answer.id %>
+          <%= answer.content %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>
