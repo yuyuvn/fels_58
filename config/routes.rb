@@ -6,11 +6,6 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :users, only: [:show, :edit, :update]
-  resources :users do
-    member do
-      get :following, :followers
-    end
-  end
   resources :category do
     resources :words, only: [:index]
   end  

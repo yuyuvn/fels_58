@@ -16,14 +16,10 @@ class User < ActiveRecord::Base
   
   def follow other_user
     following_relationships.create followed_id: other_user.id
-    activities.create target_id: other_user.id,
-      state: Settings.activity_state.follow
   end
   
   def unfollow other_user
     following_relationships.find_by(followed_id: other_user.id).destroy
-    activities.create target_id: other_user.id,
-      state: Settings.activity_state.unfollow
   end
   
   def following? other_user
