@@ -1,0 +1,9 @@
+.answer-button {
+  margin: 10px
+}
+.answer-button input[type="radio"] {
+  display: none;
+}
+.answer-button input[type="radio"]:checked label {
+  display: none;
+}

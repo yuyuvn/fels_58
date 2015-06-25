@@ -53,3 +53,8 @@ en:
     result:
       correct: "O"
       wrong: "X"
+  categories:
+    index:
+      title: "Lessons"
+    category:
+      start: "Start"

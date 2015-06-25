@@ -47,6 +47,9 @@ gem "rails_config"
 # Responder
 gem "responders"
 
+# Debuger
+gem "byebug"
+
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem "web-console", "~> 2.0"
