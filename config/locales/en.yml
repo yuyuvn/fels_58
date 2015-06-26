@@ -58,3 +58,10 @@ en:
       title: "Lessons"
     category:
       start: "Start"
+  words:
+    filter_form:
+      category: "Category"
+      learned: "Learned"
+      not_learned: "Not learned"
+      all: "All"
+      filter: "Filter"

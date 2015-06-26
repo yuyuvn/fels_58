@@ -1,0 +1,20 @@
+<%= form_tag category_words_path(@category.id),
+  method: :get, class: "form-inline", id: "filter-form" do %>
+  <div class="form-group">
+    <label>
+    <%= select_tag :id, options_for_select(@categories_list, category_words_path(@category.id)) %>
+    <%= t ".category" %>
+    </label>
+  </div>
+  <div class="form-group">
+    <% Settings.category_type.each do |key, type| %>
+      <label>
+        <%= radio_button_tag :filter_state, type, type == @filter_state %>
+        <%= t ".#{key}" %>
+      </label>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag t ".filter" %>
+  </div>
+<% end %>
