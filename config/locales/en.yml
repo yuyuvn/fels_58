@@ -38,6 +38,8 @@ en:
       profile: "Profile"
       log_out: "log out"
       log_in: "Log in"
+      user_manager: "Users manager"
+      admin: "Admin"
   users:
     show:
       title: "%{name} - Profile"
@@ -75,3 +77,28 @@ en:
       rank: "Rank %{rank}"
       words: "Words"
       lessons: "Lessons"
+  messages:
+    request_login: "Please login!"
+    request_admin: "You are not admin!"
+    user:
+      deleted: "User has been deleted"
+      updated: "User has been updated"
+      created: "User has been created"
+  admin:
+    users:
+      index:
+        title: "Users manager"
+        new: "New user"
+      user:
+        confirm_delete: "Are your sure you want to delete this user?"
+      new:
+        title: "New user"
+      edit:
+        title: "Edit user"
+      form:
+        submit: "Submit"
+        confirmation: "Confirmation"
+    static_pages:
+      home:
+        welcome: "Welcome to administrator page"
+        user_manager: "User manager"

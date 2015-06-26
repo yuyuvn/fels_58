@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     resources :results, only: [:index]
   end
   resources :relationships, only: [:create, :destroy]
+  
+  namespace :admin do
+    root "static_pages#home"
+    resources :users, except: [:show]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
