@@ -1,5 +1,50 @@
-<div class="center jumbotron">
-  <h1>Welcome to the E-Learning System</h1>
+<% if logged_in? %>
+  <div class="container-fluid">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1><%= gravatar_for current_user %></h1>
+        <br />
+        <%= current_user.name %>
+        <br />
+        <%= t ".learned_x_words", learned_words_number: current_user.learned_words %>
+        <br />
+        <%= t ".rank", rank: current_user.rank %>
+        <div class="clearfix"></div>
+        <% if current_user.following.any? %>
+          <div class="user_avatars">
+            <% current_user.following.each do |user| %>
+              <%= link_to user, title: user.name do %>
+                <%= gravatar_for user, size: Settings.user.small_size %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    </aside>
+    <div class="col-md-8 content">
+      <div class="row">
+        <div class="col-md-6">
+          <%= button_to t(".words"), category_words_path(Category.first), method: "get", class: "btn btn-primary" %>
+        </div>
+        <div class="col-md-6">
+          <%= button_to t(".lessons"), categories_path, method: "get", class: "btn btn-primary" %>
+        </div>
+      </div>
+      <% if @activities.any? %>
+        <div class="row">
+          <h1><%= t ".activities" %></h1>
+          <div class="container-fluid" id="activities">
+            <%= render @activities %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= paginate @activities %>
+<% else %>
+  <div class="center jumbotron">
+    <h1><%= t ".welcome" %></h1>
 
-  <h2>Have fun!</h2>
-</div>
+    <h2><%= t ".welcome_description" %></h2>
+  </div>
+<% end %>

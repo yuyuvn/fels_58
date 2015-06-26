@@ -10,8 +10,11 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
+  scope :higher_rank, ->(user){joins(:lessons).group(:user_id)
+    .having "COUNT(lessons.id) > ?", user.lessons.count}
+  
   def learned_words
-    lessons.sum :correct_number
+    lessons.collect{|lesson| lesson.results.count}.sum
   end
   
   def follow other_user
@@ -24,5 +27,13 @@ class User < ActiveRecord::Base
   
   def following? other_user
     following.include? other_user
+  end
+  
+  def following_activities
+    Activity.followed self
+  end
+  
+  def rank
+    User.higher_rank(self).length + 1
   end
 end
