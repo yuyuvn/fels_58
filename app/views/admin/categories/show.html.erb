@@ -4,7 +4,7 @@
 </div>
 <div class="row">
   <h2><%= t ".answers" %><h2>
-  <%= button_to t(".add_word"), [:new, :admin, @category, :words],
+  <%= button_to t(".add_word"), [:new, :admin, @category, :word],
     method: "get", class: "btn btn-primary" %>
   <%= render @category.words %>
 </div>

@@ -13,3 +13,5 @@ category_type:
   all: "all"
   learned: "learned"
   not_learned: "not_learned"
+word:
+  minimum_answers: 4
