@@ -1,0 +1,9 @@
+<% provide :title, t(".title") %>
+
+<h1><%= t ".title" %></h1>
+<%= button_to t(".new"), new_admin_user_path,
+  method: "get", class: "btn btn-primary" %>
+<ul class="users">
+  <%= render @users %>
+</ul>
+<%= paginate @users %>
