@@ -5,12 +5,14 @@ activity_state:
 user:
   avatar_size: 50
   small_size: 20
+  password:
+    minimum_characters: 6
 lessons:
   words_per_lesson: 20
 activities:
   per_page: 5
 category_type:
-  all: "all"
+  all: "all_words"
   learned: "learned"
   not_learned: "not_learned"
 word:
