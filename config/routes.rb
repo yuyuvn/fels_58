@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root "static_pages#home"
     resources :users, except: [:show]
-    resources :categories
+    resources :categories do
+      resources :words, except: [:show, :index]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

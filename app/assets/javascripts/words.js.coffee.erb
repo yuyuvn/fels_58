@@ -11,3 +11,6 @@ jQuery ->
         $.getScript more_posts_url
   $("#filter-form select").change ->
     window.location = $(this).val()
+  $(".answers-fields").on "change", "input.is_correct:checked", ->
+    $(".answers-fields input.is_correct:checked").prop('checked', false);
+    $(this).prop('checked', true);

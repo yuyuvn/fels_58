@@ -69,6 +69,8 @@ en:
       not_learned: "Not learned"
       all: "All"
       filter: "Filter"
+    errors:
+      wrong_correct_answer_number: "Must have 1 and only 1 correct answer"
   static_pages:
     home:
       welcome: "Welcome to the E-Learning System"
@@ -81,6 +83,10 @@ en:
   messages:
     request_login: "Please login!"
     request_admin: "You are not admin!"
+    word:
+      created: "Word has been created"
+      editted: "Word has been updated"
+      deleted: "Word has been deleted"
     user:
       deleted: "User has been deleted"
       updated: "User has been updated"
@@ -90,6 +96,18 @@ en:
       updated: "Cateogry has been updated"
       deleted: "Cateogry has been deleted"
   admin:
+    words:
+      form:
+        answers: "Answers"
+        add_answer: "More answer"
+        remove_answer: "Remove answer"
+        submit: "Submit"
+      new:
+        title: "New word"
+      edit:
+        title: "Update word"
+      word:
+        confirm_delete: "Are you sure you want to delete this word?"
     categories:
       index:
         title: "Categories manager"

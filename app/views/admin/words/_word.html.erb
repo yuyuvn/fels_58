@@ -1,0 +1,9 @@
+<aside>
+  <section class="words">
+    <h1>
+      <%= link_to word.content, [:edit, :admin, @category, word] %>
+      <%= link_to "", admin_category_word_path(@category, word), method: :delete, data: {confirm: 
+        t(".confirm_delete")}, class: "glyphicon glyphicon-trash" %>
+    </h1>
+  </section>
+</aside>
