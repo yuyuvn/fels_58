@@ -4,8 +4,11 @@ activity_state:
   learned: "learned"
 user:
   avatar_size: 50
+  small_size: 20
 lessons:
   words_per_lesson: 20
+activities:
+  per_page: 5
 category_type:
   all: "all"
   learned: "learned"

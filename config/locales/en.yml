@@ -31,17 +31,18 @@ en:
   sessions:
     new:
       log_in: "Log in"
-  header:
-    settings: "Settings"
-    account: "Account"
-    profile: "Profile"
-    log_out: "log out"
-    log_in: "Log in"
+  layouts:
+    header:
+      settings: "Settings"
+      account: "Account"
+      profile: "Profile"
+      log_out: "log out"
+      log_in: "Log in"
   users:
     show:
       title: "%{name} - Profile"
       learned_x_words: "Learned %{learned_words_number} words"
-      activities: "Activities"  
+      activities: "Activities"
   activities:
     activity:
       learned_x_words_in_lesson_y: "Learned %{words_number} words in Lesson '%{lesson}'"
@@ -65,3 +66,12 @@ en:
       not_learned: "Not learned"
       all: "All"
       filter: "Filter"
+  static_pages:
+    home:
+      welcome: "Welcome to the E-Learning System"
+      welcome_description: "Have fun!"
+      learned_x_words: "Learned %{learned_words_number} words"
+      activities: "Activities"
+      rank: "Rank %{rank}"
+      words: "Words"
+      lessons: "Lessons"

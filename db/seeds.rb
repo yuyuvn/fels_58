@@ -9,7 +9,8 @@
 user = User.create! name: "Clicia Scarlet",
   email: "example@framgia.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  is_admin: true
 
 FFaker::Locale.language "en-US"
 
@@ -27,29 +28,23 @@ FFaker::Locale.language "en-US"
   end
 end
 
-2.times do |_|  
-  category = Category.first
-  lesson = user.lessons.create! category_id: category.id,
-    correct_number: 0
-  words = category.words.take 20  
-  words.each do |word|
-    answer = word.answers.order("RAND()").first
-    result = lesson.results.create! answer_id: answer.id, word_id: word.id
-    lesson.correct_number += 1 if answer.is_correct?
-  end
-  lesson.save!
-  user.activities.create! target_id: lesson.id,
-    state: Settings.activity_state.learned
-end
-
-3.times do |_|
+20.times do |i|
   target = User.create! name: FFaker::Name.name,
     email: FFaker::Internet.email,
     password: "123456",
     password_confirmation: "123456"
+  user.follow target
+  user.unfollow target if i.odd?
 end
 
-user.activities.create! target_id: 2,
-  state: Settings.activity_state.follow
-user.activities.create! target_id: 3,
-  state: Settings.activity_state.unfollow
+target = user.following.first
+4.times do |i|
+  learner = i > 2 ? target : user
+  category = Category.order("RAND()").first
+  lesson = learner.lessons.create! category_id: category.id
+  lesson.results.each do |r|
+    r.answer = r.word.answers.order("RAND()").first
+    r.save!
+  end
+  lesson.save!
+end
