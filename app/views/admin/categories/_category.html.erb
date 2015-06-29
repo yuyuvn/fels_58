@@ -1,0 +1,19 @@
+<aside>
+  <section class="user_info">
+    <h1>
+      <%= link_to category.name, [:admin, category] %>
+      <%= link_to "", edit_admin_category_path(category), class: "glyphicon glyphicon-pencil" %>
+      <%= link_to "", admin_category_path(category), method: :delete, data: {confirm: 
+        t(".confirm_delete")}, class: "glyphicon glyphicon-trash" %>
+    </h1>
+    <p>
+      <%= category.description %>
+    </p>
+    <p>
+      <%= t "created_time" %><%= category.created_at %>
+    </p>
+    <p>
+      <%= t "updated_time" %><%= category.updated_at %>
+    </p>
+  </section>
+</aside>
