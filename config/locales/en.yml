@@ -39,6 +39,7 @@ en:
       log_out: "log out"
       log_in: "Log in"
       user_manager: "Users manager"
+      cateogry_manager: "Categories manager"
       admin: "Admin"
   users:
     show:
@@ -84,7 +85,29 @@ en:
       deleted: "User has been deleted"
       updated: "User has been updated"
       created: "User has been created"
+    category:
+      created: "Category has been created"
+      updated: "Cateogry has been updated"
+      deleted: "Cateogry has been deleted"
   admin:
+    categories:
+      index:
+        title: "Categories manager"
+        new: "New category"
+      category:
+        confirm_delete: "Are your sure you want to delete this category?"
+        created_time: "Created time"
+        updated_time: "Updated time"
+      form:
+        submit: "Submit"
+      new:
+        title: "New category"
+      edit:
+        title: "Update category"
+      show:
+        title: "Category %{category}"
+        answers: "Answers"
+        add_word: "Add word"
     users:
       index:
         title: "Users manager"
@@ -102,3 +125,4 @@ en:
       home:
         welcome: "Welcome to administrator page"
         user_manager: "User manager"
+        cateogy_manager: "Category manager"

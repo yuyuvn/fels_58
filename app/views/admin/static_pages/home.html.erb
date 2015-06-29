@@ -1,5 +1,6 @@
 <div class="center jumbotron">
   <h1><%= t ".welcome" %></h1>
 
-  <%= button_to t(".user_manager"), [:admin, :users], class: "btn btn-primary" %>
+  <%= button_to t(".user_manager"), [:admin, :users], method:"get", class: "btn btn-primary" %>
+  <%= button_to t(".cateogy_manager"), [:admin, :categories], method:"get", class: "btn btn-primary" %>
 </div>
