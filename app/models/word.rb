@@ -1,16 +1,17 @@
 class Word < ActiveRecord::Base
-  has_many :answers
-  has_many :results
-  has_many :lessons, through: :results
+  has_many :answers, dependent: :destroy
+  has_many :results, dependent: :destroy
+  has_many :lessons, through: :results  
+  belongs_to :category
   
   scope :some, ->{order("RAND()").limit Settings.lessons.words_per_lesson}
-  scope :learned, ->(user){joins(:lessons).where lessons: {user_id: user.id}}
+  scope :learned, ->(user){joins(:lessons).where(lessons: {user_id: user.id})
+    .where.not(results: {answer_id: nil})}
   scope :not_learned,
-    ->(user){includes(:lessons)
-      .where("lessons.user_id != ? OR lessons.user_id IS NULL",user.id)
+    ->(user){includes(:lessons).where("lessons.user_id != ? OR
+      lessons.user_id IS NULL OR results.answer_id IS NULL",user.id)
       .references :lessons}
-  
-  belongs_to :category
+  scope :all_words, ->(user){}
   
   accepts_nested_attributes_for :answers,
     reject_if: ->(attributes){attributes["content"].blank?},
@@ -32,8 +33,8 @@ class Word < ActiveRecord::Base
   
   private
   def correct_answer_number
-    if answers.reject(&:marked_for_destruction?)
-      .select{|answer| answer.is_correct?}.length != 1
+    unless answers.reject(&:marked_for_destruction?)
+      .select{|answer| answer.is_correct?}.length == 1
       self.errors.add :base, I18n.t("words.errors.wrong_correct_answer_number")
     end
   end
