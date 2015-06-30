@@ -1,3 +1,6 @@
-$(".audioButton").on "click", ->
-  $(".audio-play")[0].currentTime = 0
-  $(".audio-play")[0].play()
+jQuery ->
+  $(".audio-button").on "click", ->
+    audio = $(this).nextAll("audio:first")[0]
+    audio.currentTime = 0
+    audio.play()
+    return false

@@ -36,3 +36,6 @@ bower.json
 
 # Ignore database config
 /config/database.yml
+
+# Upload folder
+/public/uploads/

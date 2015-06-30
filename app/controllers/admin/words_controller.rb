@@ -1,7 +1,7 @@
 class Admin::WordsController < ApplicationController
   before_action :logged_in_admin
-  before_action :set_category, except: :destroy
-  before_action :set_word, only: [:show, :edit, :update]
+  before_action :set_category
+  before_action :set_word, except: [:new, :create]
 
   def new
     @word = @category.words.build
@@ -11,7 +11,7 @@ class Admin::WordsController < ApplicationController
   def create
     @word = @category.words.new word_params
     if @word.save
-      flash[:success] = t "message.word.created"
+      flash[:success] = t "messages.word.created"
       redirect_to admin_category_url @category
     else
       if @word.answers.length < Settings.word.minimum_answers
@@ -27,22 +27,23 @@ class Admin::WordsController < ApplicationController
 
   def update
     if @word.update_attributes word_params
-      flash[:success] = t "message.word.editted"
-      redirect_to admin_category_word_url
+      flash[:success] = t "messages.word.editted"
+      redirect_to admin_category_url @category
     else
       render :edit
     end
   end
 
   def destroy
-    Word.find(params[:id]).destroy
-    flash[:success] = t "message.word.deleted"
-    redirect_to admin_category_words_url
+    @word.destroy
+    flash[:success] = t "messages.word.deleted"
+    redirect_to admin_category_url @category
   end
 
   private
   def word_params
-    params.require(:word).permit :content, answers_attributes: [:id, :content, :is_correct, :_destroy]
+    params.require(:word).permit :content, :audio,
+      answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 
   def set_category

@@ -3,7 +3,7 @@
     <h1><%= form.object.word.content %></h1>
     <% if form.object.word.has_audio? %>
       <br />
-      <%= audio_tag form.object.word.audio, class: "audio-play" %>
+      <%= render "shared/audio_button", url: form.object.word.audio.url %>
     <% end %>
   </div>
   <div class="col-md-6 answers btn-group" role="group">

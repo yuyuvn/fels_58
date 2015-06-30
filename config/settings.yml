@@ -15,3 +15,7 @@ category_type:
   not_learned: "not_learned"
 word:
   minimum_answers: 4
+  audio:
+    allow_type: ["wav", "mp3"]
+    allow_mime: "audio/wav,audio/mp3"
+store_dir: "uploads"
