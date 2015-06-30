@@ -49,4 +49,8 @@ class User < ActiveRecord::Base
   def rank
     User.higher_rank(self).length + 1
   end
+  
+  def to_param
+    [id, name.parameterize].join("-")
+  end
 end
