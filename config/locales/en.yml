@@ -80,6 +80,9 @@ en:
       rank: "Rank %{rank}"
       words: "Words"
       lessons: "Lessons"
+  shared:
+    audio_button:
+      play: "Play"
   messages:
     request_login: "Please login!"
     request_admin: "You are not admin!"

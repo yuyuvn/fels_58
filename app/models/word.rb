@@ -20,6 +20,8 @@ class Word < ActiveRecord::Base
   validates :answers, length: {minimum: Settings.word.minimum_answers}
   validate :correct_answer_number
   
+  mount_uploader :audio, AudioUploader
+  
   def correct_answer
     answers.find_by is_correct: true
   end
@@ -35,6 +37,4 @@ class Word < ActiveRecord::Base
       self.errors.add :base, I18n.t("words.errors.wrong_correct_answer_number")
     end
   end
-  
-  
 end
