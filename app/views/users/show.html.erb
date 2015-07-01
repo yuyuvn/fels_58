@@ -2,15 +2,8 @@
 
 <div class="container-fluid">
   <aside class="col-md-4">
-    <section class="user_info">
-      <h1><%= gravatar_for @user %></h1>
-      <br />
-      <%= @user.name %>
-      <br />
-      <%= t ".learned_x_words", learned_words_number: @user.learned_words %>
-      <div class="clearfix"></div>
-      <%= render "follow_form" if logged_in? %>
-    </section>
+    <%= render "shared/user_info", user: @user %>
+    <%= render "follow_form" if logged_in? %>
   </aside>
   <div class="col-md-8 content">
     <h1><%= t ".activities" %></h1>

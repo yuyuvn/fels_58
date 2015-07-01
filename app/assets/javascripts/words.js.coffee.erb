@@ -7,7 +7,7 @@ jQuery ->
     $(window).on "scroll", ->
       more_posts_url = $("nav.pagination a[rel=next]").attr("href")
       if more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60
-        $('.pagination').html("<%= I18n.t :word_getting_data %>");
+        $('.pagination').html("<%= I18n.t "getting_data" %>");
         $.getScript more_posts_url
   $("#filter-form select").change ->
     window.location = $(this).val()

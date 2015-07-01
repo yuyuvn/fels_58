@@ -51,6 +51,7 @@ en:
       submit: "Unfollow"
     form:
       submit: "Submit"
+      confirmation: "Confirmation"
   activities:
     activity:
       learned_x_words_in_lesson_y: "Learned %{words_number} words in Lesson '%{lesson}'"

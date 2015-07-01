@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   include LogModule
   
-  has_many :activities, ->{newest}, dependent: :destroy
   has_many :activities, as: :target
+  has_many :activities, ->{newest}, dependent: :destroy
   has_many :lessons, dependent: :destroy
   has_many :following_relationships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :delete_all
