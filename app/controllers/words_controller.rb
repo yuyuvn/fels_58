@@ -7,9 +7,6 @@ class WordsController < ApplicationController
     @categories_list = Category.all.collect{|category|
       [category.name, category_words_path(category)]}
     
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    respond_to :html, :js
   end
 end
