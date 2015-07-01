@@ -5,16 +5,25 @@ class LessonsController < ApplicationController
   
   def create
     category = Category.find params[:category_id]
-    @lesson = category.lessons.create user: current_user
-    redirect_to edit_category_lesson_path category, @lesson
+    if @lesson = category.lessons.create(user: current_user)
+      flash[:success] = t "messages.lessons.created"
+      redirect_to edit_category_lesson_path category, @lesson
+    else
+      flash[:danger] = t "messages.lessons.errors.can_not_create_lesson"
+      redirect_to categories_path
+    end
   end
   
   def edit
   end
   
   def update
-    @lesson.update_attributes lesson_params
-    redirect_to lesson_results_path @lesson
+    if @lesson.update_attributes(lesson_params)
+      flash[:success] = t "messages.lessons.finished"
+      redirect_to lesson_results_path @lesson
+    else
+      render "edit"
+    end
   end
   
   private
