@@ -1,5 +1,5 @@
-<% provide :title, t(:profile_edit_title) %>
-<h1><%= t :profile_edit_title %></h1>
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -7,7 +7,7 @@
     
     <div class="gravatar_edit">
       <%= gravatar_for @user %>
-      <%= link_to t(:profile_edit_avatar), "http://gravatar.com/emails" %>
+      <%= link_to t(".edit_avatar"), "http://gravatar.com/emails" %>
     </div>
   </div>
 </div>
