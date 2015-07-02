@@ -27,10 +27,6 @@ class Word < ActiveRecord::Base
     answers.find_by is_correct: true
   end
   
-  def has_audio?
-    !audio.nil?
-  end
-  
   private
   def correct_answer_number
     unless answers.reject(&:marked_for_destruction?)

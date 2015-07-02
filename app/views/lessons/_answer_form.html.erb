@@ -1,9 +1,10 @@
 <div class="row answer-form">
   <div class="col-md-6">
     <h1><%= form.object.word.content %></h1>
-    <% if form.object.word.has_audio? %>
-      <br />
-      <%= render "shared/audio_button", url: form.object.word.audio.url %>
+    <% if form.object.word.audio? %>
+      <div class="center">
+        <%= render "shared/audio_button", url: form.object.word.audio.url %>
+      </div>
     <% end %>
   </div>
   <div class="col-md-6 answers btn-group" role="group">

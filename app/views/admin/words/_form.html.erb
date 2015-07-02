@@ -7,7 +7,7 @@
   
   <%= f.label :audio %>
   <%= f.file_field :audio, accept: Settings.word.audio.allow_mime %>
-  <% if f.object.has_audio? %>
+  <% if f.object.audio? %>
     <%= render "shared/audio_button", url: f.object.audio.url %>
   <% end %>
 

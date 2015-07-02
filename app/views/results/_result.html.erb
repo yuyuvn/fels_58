@@ -9,7 +9,7 @@
     <%= result.answer.content %>
   </div>
   <div class="col-md-2">
-    <% if result.word.has_audio? %>
+    <% if result.word.audio? %>
       <%= render "shared/audio_button", url: result.word.audio.url %>
     <% end %>
   </div>
