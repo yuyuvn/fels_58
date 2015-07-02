@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :activities, as: :target
   has_many :activities, ->{newest}, dependent: :destroy
   has_many :lessons, dependent: :destroy
+  has_many :results, ->{answered}, through: :lessons
   has_many :following_relationships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :delete_all
   has_many :followers_relationships, class_name: "Relationship",
@@ -23,11 +24,11 @@ class User < ActiveRecord::Base
   
   after_destroy :destroy_activities
   
-  scope :higher_rank, ->(user){joins(:lessons).group(:user_id)
-    .having "COUNT(lessons.id) > ?", user.lessons.count}
+  scope :higher_rank, ->user{joins(:results).group(:user_id)
+    .having "COUNT(results.id) > (?)", user.results.select("COUNT(*)")}
   
   def learned_words
-    lessons.collect{|lesson| lesson.results.count}.sum
+    results.count
   end
   
   def follow other_user
@@ -47,10 +48,10 @@ class User < ActiveRecord::Base
   end
   
   def rank
-    User.higher_rank(self).length + 1
+    User.higher_rank(self).count.count + 1
   end
   
   def to_param
-    [id, name.parameterize].join("-")
+    [id, name.parameterize].join "-"
   end
 end
