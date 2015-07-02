@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
   
   scope :newest, ->{order created_at: :desc}
-  scope :followed, ->(user){where("user_id IN (?) OR user_id = ?",
+  scope :followed, ->user{where("user_id IN (?) OR user_id = ?",
     user.following.select("user_id"), user.id).order created_at: :desc}
   
   Settings.activity_state.each do |state_key, state_value|
