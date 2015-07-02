@@ -4,12 +4,13 @@ class LessonsController < ApplicationController
   before_action :check_finished, only: [:edit, :update]
   
   def create
-    category = Category.find params[:category_id]
-    if @lesson = category.lessons.create(user: current_user)
+    category = Category.find params[:category_id]        
+    @lesson = category.lessons.unfinished.first_or_create user: current_user
+    if @lesson.valid?
       flash[:success] = t "messages.lessons.created"
       redirect_to edit_category_lesson_path category, @lesson
     else
-      flash[:danger] = t "messages.lessons.errors.can_not_create_lesson"
+      flash[:danger] = @lesson.errors.full_messages.join ", "
       redirect_to categories_path
     end
   end

@@ -68,6 +68,9 @@ en:
       title: "Lessons"
     category:
       start: "Start"
+  lessons:
+    errors:
+      no_word_available: "You have learned all words in this category"
   words:
     filter_form:
       category: "Category"
@@ -115,8 +118,6 @@ en:
     lessons:
       created: "Operation start!"
       finished: "This is your result!"
-      errors:
-        can_not_create_lesson: "Please try again."
   admin:
     words:
       form:
